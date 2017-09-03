@@ -1,0 +1,9 @@
+<quest-question 
+            *ngFor = "let question of [currentQuestion]; let i = index"
+            [question] = "question" 
+            [inputChoice] = "currentChoice"
+            [questionIndex] ="currentQuestionIndex"
+            (nextClicked) = "onNextClick($event)" 
+            (prevClicked) = "onPrevClick($event)"
+            >
+</quest-question>

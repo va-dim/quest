@@ -1,0 +1,9 @@
+:host {
+   width: 100%;
+} 
+
+:host .freetext {
+   background-color: lightgrey;
+   width: 100%;
+   min-height: 100px;
+}

@@ -1,0 +1,9 @@
+<md-radio-group id="radiogroup" class="radiogroup" [(ngModel)] = "currentSelection">
+        <md-radio-button class="radiobutton" 
+                         *ngFor="let answer of answers; let i = index" 
+                         [id]="'radio_'+i"
+                         [value]="i" color="primary" 
+                         (click)="onBtnClick(answer)" >
+             {{answer}}
+        </md-radio-button>
+</md-radio-group>

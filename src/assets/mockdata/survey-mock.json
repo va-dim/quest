@@ -1,0 +1,40 @@
+{
+    id: "mocksurvey",
+    title: "Superhero classificaiton of rheinland palatine",
+    questions: [
+        {
+            type: "singlechoice",
+            question: "What color of pants do you prefer most",
+            answers: [
+                "red",
+                "blue",
+                "green"
+            ]
+        },
+        {
+            type: "singlechoice",
+            question: "Can you fly?",
+            answers: [
+                "yes",
+                "no"
+            ]
+        },
+        {
+            type: "multiplechoice",
+            question: "What abilities you have?",
+            answers: [
+                "I can fly",
+                "I transform",
+                "I am pretty stretchy"
+            ]
+        },
+        {
+            type: "freetext",
+            question: "What swearwords you know",
+            answers: [
+                "yes",
+                "no"
+            ]
+        }
+    ]
+}

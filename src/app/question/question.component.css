@@ -1,0 +1,25 @@
+:host {
+    width: inherit;
+    background-color: white;
+}
+
+:host .choice{
+    width: inherit;
+}
+
+:host button{
+     margin-left:6px;
+     margin-right:6px;
+}
+
+:host .buttonbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+:host .mandatory{
+    color: red;
+    margin-top: 12px;
+    font-size: 16px;
+}

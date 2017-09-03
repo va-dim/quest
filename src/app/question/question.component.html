@@ -1,0 +1,27 @@
+<md-card>
+    <md-toolbar *ngIf="question" color="primary" id="questionContainer">{{questionIndex +1}}. {{question.question}} </md-toolbar>
+    <div class="mandatory" *ngIf="mandatory">*Pick an answer please</div>
+    <div class="choice" *ngIf="question" [ngSwitch]="question.type">
+        <quest-freetext *ngSwitchCase="'freetext'" 
+                        [choice]="inputChoice" 
+                        (onChoiceChange)="onFreetextChange($event)">
+        </quest-freetext>
+        
+        <quest-singlechoice *ngSwitchCase="'singlechoice'" 
+                            [answers]="question.answers" 
+                            [choice]="inputChoice" 
+                            (onChoiceChange)="onSingleChoiceChange($event)">
+        </quest-singlechoice>
+
+        <quest-multiplechoice *ngSwitchCase="'multiplechoice'" 
+                              [answers]="question.answers" 
+                              [choice]="inputChoice" 
+                              (onChoiceChange)="onMultipleChoiceChange($event)">
+        </quest-multiplechoice>
+    </div>
+
+    <div class="buttonbar">
+        <button id="prevButton" md-raised-button color="primary" *ngIf="question && number!=1" (click)="onPrevClick()">prev</button>
+        <button id="nextButton" md-raised-button color="primary" (click)="onNextClick()">next</button>
+    </div>
+</md-card>

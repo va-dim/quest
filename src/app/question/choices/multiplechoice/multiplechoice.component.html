@@ -1,0 +1,8 @@
+    <md-checkbox type="checkbox" class="checkbox" 
+                 *ngFor="let answer of answers; let i = index" 
+                 [checked] = "currentSelection.includes(i)"
+                 [id]="'checkbox_'+i"
+                 [value] = "answer" color="primary" 
+                 (change) = "onBtnChanged($event, answer)">
+        {{answer}}
+    </md-checkbox>
