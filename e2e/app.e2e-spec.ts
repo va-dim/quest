@@ -69,7 +69,7 @@ describe("quest App", () => {
     });
 
     it("result to match clicks", () => {
-        //better grep from console
+        // better grep from console
         expect(page.getSurveyResult()).toEqual("{\"surveyId\":\"mocksurvey\",\"answers\":[{\"questionIndex\":0,\"answerIndexes\":[0]},{\"questionIndex\":1,\"answerIndexes\":[1]},{\"questionIndex\":2,\"answerIndexes\":[0]},{\"questionIndex\":3,\"answerFreetext\":\"test\"}]}");
     });
 

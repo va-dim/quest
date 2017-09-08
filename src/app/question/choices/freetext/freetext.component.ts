@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
-import { QuestionAnswer } from "../../../../services/IQuestService";
+import { IQuestionAnswer } from "../../../../backend/interfaces";
 
 @Component({
     selector: "quest-freetext",
@@ -8,7 +8,7 @@ import { QuestionAnswer } from "../../../../services/IQuestService";
 })
 export class FreetextComponent implements OnInit {
     @Output() onChoiceChange = new EventEmitter<string>();
-    @Input() choice: QuestionAnswer | null;
+    @Input() choice: IQuestionAnswer | null;
 
     private initialText = "";
 

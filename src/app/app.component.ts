@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { ApplicationClient } from "../services/application-client";
-import { IQuestion, ISurvey, SurveyResult } from "../services/IQuestService";
-import { ServiceClientMock } from "../services/service-client-mock";
+import { ApplicationClient } from "../backend/applicationclient";
+import { IQuestion, ISurvey, ISurveyResult } from "../backend/interfaces";
+import { ServiceClientMock } from "../backend/serviceclient.mock";
 @Component({
     selector: "quest-root",
     templateUrl: "./app.component.html",
@@ -24,7 +24,7 @@ export class AppComponent {
         this.state = "survey";
     }
 
-    onSurveyEnd(survey: SurveyResult) {
+    onSurveyEnd(survey: ISurveyResult) {
         console.log("survey end: ", survey);
         this.surveyResult = JSON.stringify(survey);
         ApplicationClient.submitSurvey(survey)

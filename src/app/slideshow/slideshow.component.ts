@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { IQuestion, ISurvey, QuestionAnswer, SurveyResult } from "../../services/IQuestService";
+import { IQuestion, ISurvey, IQuestionAnswer, ISurveyResult } from "../../backend/interfaces";
 
 @Component({
     selector: "quest-slideshow",
@@ -10,11 +10,11 @@ export class SlideshowComponent implements OnInit {
     private static moveDirection = "right";
 
     @Input() survey: ISurvey | null;
-    @Output() onSurveyEnd = new EventEmitter<SurveyResult>();
+    @Output() onSurveyEnd = new EventEmitter<ISurveyResult>();
     private currentQuestion: IQuestion;
     private currentQuestionIndex: number;
-    private currentSurveyResult: SurveyResult;
-    private currentChoice: QuestionAnswer;
+    private currentSurveyResult: ISurveyResult;
+    private currentChoice: IQuestionAnswer;
 
     public ngOnInit() {
         this.currentSurveyResult = { surveyId: this.survey.id, answers: [] };
@@ -22,7 +22,7 @@ export class SlideshowComponent implements OnInit {
 
     }
 
-    public onNextClick(event: QuestionAnswer) {
+    public onNextClick(event: IQuestionAnswer) {
         const newIndex = Math.min(this.survey.questions.length - 1, this.currentQuestionIndex + 1);
         this.saveAnswer(event);
 
@@ -34,14 +34,14 @@ export class SlideshowComponent implements OnInit {
         console.log("currentSurveyResult: ", this.currentSurveyResult);
     }
 
-    public onPrevClick(event: QuestionAnswer) {
+    public onPrevClick(event: IQuestionAnswer) {
         const newIndex = Math.max(0, this.currentQuestionIndex - 1);
         this.saveAnswer(event);
         this.setQuestion(newIndex);
         console.log("currentSurveyResult: ", this.currentSurveyResult);
     }
 
-    private saveAnswer(event: QuestionAnswer) {
+    private saveAnswer(event: IQuestionAnswer) {
         if (!event) { return; }
         const answerIndex = this.currentSurveyResult.answers.findIndex(a => a.questionIndex === this.currentQuestionIndex);
         if (answerIndex > -1) {

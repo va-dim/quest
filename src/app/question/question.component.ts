@@ -1,7 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter } from "@angular/core";
 import { trigger, state, transition, style, animate } from "@angular/animations";
-import { ApplicationClient } from "../../services/application-client";
-import { IQuestion, ISurvey, QuestionAnswer } from "../../services/IQuestService";
+import { ApplicationClient } from "../../backend/applicationclient";
+import { IQuestion, ISurvey, IQuestionAnswer } from "../../backend/interfaces";
 @Component({
 
     selector: "quest-question",
@@ -34,14 +34,14 @@ import { IQuestion, ISurvey, QuestionAnswer } from "../../services/IQuestService
 export class QuestionComponent implements OnInit {
     private static direction = "right";
     @Input() question: IQuestion | null;
-    @Input() inputChoice: QuestionAnswer | null;
+    @Input() inputChoice: IQuestionAnswer | null;
     @Input() questionIndex: number;
 
-    @Output() nextClicked = new EventEmitter<QuestionAnswer>();
-    @Output() prevClicked = new EventEmitter<QuestionAnswer>();
+    @Output() nextClicked = new EventEmitter<IQuestionAnswer>();
+    @Output() prevClicked = new EventEmitter<IQuestionAnswer>();
 
     private animIn: string;
-    private outputChoice: QuestionAnswer;
+    private outputChoice: IQuestionAnswer;
     private mandatory: boolean;
 
     public ngOnInit() {

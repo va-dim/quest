@@ -1,5 +1,5 @@
 import { Component, Input, Output, OnInit, OnDestroy, EventEmitter } from "@angular/core";
-import { QuestionAnswer } from "../../../../services/IQuestService";
+import { IQuestionAnswer } from "../../../../backend/interfaces";
 
 interface IResultPair {
     key: number;
@@ -14,7 +14,7 @@ interface IResultPair {
 export class MultiplechoiceComponent implements OnInit {
     @Output() onChoiceChange = new EventEmitter<Array<number>>();
     @Input() answers: string[];
-    @Input() choice: QuestionAnswer;
+    @Input() choice: IQuestionAnswer | null;
 
     private outputChoice: Array<IResultPair> = [];
     private currentSelection: number[] = [];

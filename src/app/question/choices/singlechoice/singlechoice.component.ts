@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
-import { QuestionAnswer } from "../../../../services/IQuestService";
+import { IQuestionAnswer } from "../../../../backend/interfaces";
 
 @Component({
     selector: "quest-singlechoice",
@@ -9,7 +9,7 @@ import { QuestionAnswer } from "../../../../services/IQuestService";
 export class SinglechoiceComponent implements OnInit {
     @Output() onChoiceChange = new EventEmitter<number>();
     @Input() answers: string[];
-    @Input() choice: QuestionAnswer;
+    @Input() choice: IQuestionAnswer | null;
     private currentSelection: number;
 
     public ngOnInit() {

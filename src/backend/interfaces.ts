@@ -22,12 +22,12 @@ export interface IQuestion {
 }
 
 
-export class SurveyResult {
+export interface ISurveyResult {
     surveyId: string;
-    answers?: Array<QuestionAnswer>;
+    answers?: Array<IQuestionAnswer>;
 }
 
-export class QuestionAnswer {
+export interface IQuestionAnswer {
     questionIndex: number;
     answerIndexes?: number[];
     answerFreetext?: string;
@@ -35,5 +35,5 @@ export class QuestionAnswer {
 
 export interface IQuestServiceClient {
     getSurvey(id: string): _bluebird<ISurvey>;
-    submitSurvey(surveyResult: SurveyResult);
+    submitSurvey(surveyResult: ISurveyResult);
 }

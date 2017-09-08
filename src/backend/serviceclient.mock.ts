@@ -1,4 +1,4 @@
-import { IQuestServiceClient, ISurvey, SurveyResult } from "./IQuestService";
+import { IQuestServiceClient, ISurvey, ISurveyResult } from "./interfaces";
 import _bluebird from "bluebird";
 
 export class ServiceClientMock implements IQuestServiceClient {
@@ -55,7 +55,7 @@ export class ServiceClientMock implements IQuestServiceClient {
         return _bluebird.resolve(ServiceClientMock.mocksurvey); // return promise as the real service client would
     }
 
-    public submitSurvey(surveyResult: SurveyResult) {
+    public submitSurvey(surveyResult: ISurveyResult) {
         console.log(`Submitted survey result: ${JSON.stringify(surveyResult)}`);
         return _bluebird.resolve(true);
     }

@@ -1,5 +1,5 @@
-import { ServiceClientMock } from "./service-client-mock";
-import { IQuestServiceClient, SurveyResult } from "./IQuestService";
+import { ServiceClientMock } from "./serviceclient.mock";
+import { IQuestServiceClient, ISurveyResult } from "./interfaces";
 
 export class ApplicationClient {
     private static serviceClient: IQuestServiceClient;
@@ -12,7 +12,7 @@ export class ApplicationClient {
         return this.serviceClient.getSurvey(id);
     }
 
-    public static submitSurvey(surveyResult: SurveyResult) {
+    public static submitSurvey(surveyResult: ISurveyResult) {
         return this.serviceClient.submitSurvey(surveyResult);
     }
 }
